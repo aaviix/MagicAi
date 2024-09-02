@@ -21,6 +21,7 @@ use Google\Service\DiscoveryEngine\GoogleCloudDiscoveryengineV1CompleteQueryResp
 use Google\Service\DiscoveryEngine\GoogleCloudDiscoveryengineV1DataStore;
 use Google\Service\DiscoveryEngine\GoogleCloudDiscoveryengineV1ListDataStoresResponse;
 use Google\Service\DiscoveryEngine\GoogleCloudDiscoveryengineV1SiteSearchEngine;
+use Google\Service\DiscoveryEngine\GoogleCloudDiscoveryengineV1TrainCustomModelRequest;
 use Google\Service\DiscoveryEngine\GoogleLongrunningOperation;
 
 /**
@@ -95,6 +96,12 @@ class ProjectsLocationsCollectionsDataStores extends \Google\Service\Resource
    * field must conform to [RFC-1034](https://tools.ietf.org/html/rfc1034)
    * standard with a length limit of 63 characters. Otherwise, an INVALID_ARGUMENT
    * error is returned.
+   * @opt_param bool skipDefaultSchemaCreation A boolean flag indicating whether
+   * to skip the default schema creation for the data store. Only enable this flag
+   * if you are certain that the default schema is incompatible with your use
+   * case. If set to true, you must manually create a schema for the data store
+   * before any documents can be ingested. This flag cannot be specified if
+   * `data_store.starting_schema` is specified.
    * @return GoogleLongrunningOperation
    * @throws \Google\Service\Exception
    */
@@ -213,6 +220,24 @@ class ProjectsLocationsCollectionsDataStores extends \Google\Service\Resource
     $params = ['name' => $name, 'postBody' => $postBody];
     $params = array_merge($params, $optParams);
     return $this->call('patch', [$params], GoogleCloudDiscoveryengineV1DataStore::class);
+  }
+  /**
+   * Trains a custom model. (dataStores.trainCustomModel)
+   *
+   * @param string $dataStore Required. The resource name of the Data Store, such
+   * as `projects/locations/global/collections/default_collection/dataStores/defau
+   * lt_data_store`. This field is used to identify the data store where to train
+   * the models.
+   * @param GoogleCloudDiscoveryengineV1TrainCustomModelRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return GoogleLongrunningOperation
+   * @throws \Google\Service\Exception
+   */
+  public function trainCustomModel($dataStore, GoogleCloudDiscoveryengineV1TrainCustomModelRequest $postBody, $optParams = [])
+  {
+    $params = ['dataStore' => $dataStore, 'postBody' => $postBody];
+    $params = array_merge($params, $optParams);
+    return $this->call('trainCustomModel', [$params], GoogleLongrunningOperation::class);
   }
 }
 

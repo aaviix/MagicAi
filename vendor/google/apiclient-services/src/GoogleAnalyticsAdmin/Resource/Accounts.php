@@ -80,7 +80,7 @@ class Accounts extends \Google\Service\Resource
    *
    * @param string $name Required. The name of the settings to lookup. Format:
    * accounts/{account}/dataSharingSettings Example:
-   * "accounts/1000/dataSharingSettings"
+   * `accounts/1000/dataSharingSettings`
    * @param array $optParams Optional parameters.
    * @return GoogleAnalyticsAdminV1betaDataSharingSettings
    * @throws \Google\Service\Exception
@@ -93,7 +93,7 @@ class Accounts extends \Google\Service\Resource
   }
   /**
    * Returns all accounts accessible by the caller. Note that these accounts might
-   * not currently have GA4 properties. Soft-deleted (ie: "trashed") accounts are
+   * not currently have GA properties. Soft-deleted (ie: "trashed") accounts are
    * excluded by default. Returns an empty list if no relevant accounts are found.
    * (accounts.listAccounts)
    *
@@ -161,8 +161,8 @@ class Accounts extends \Google\Service\Resource
    * for a property. Reports may be requested for any property, but dimensions
    * that aren't related to quota can only be requested on Google Analytics 360
    * properties. This method is only available to Administrators. These data
-   * access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
-   * and other products like Firebase & Admob that can retrieve data from Google
+   * access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+   * other products like Firebase & Admob that can retrieve data from Google
    * Analytics through a linkage. These records don't include property
    * configuration changes like adding a stream or changing a property's time
    * zone. For configuration change history, see [searchChangeHistoryEvents](https
@@ -173,8 +173,9 @@ class Accounts extends \Google\Service\Resource
    * property level or account level. If requested at the account level, Data
    * Access Reports include all access for all properties under that account. To
    * request at the property level, entity should be for example 'properties/123'
-   * if "123" is your GA4 property ID. To request at the account level, entity
-   * should be for example 'accounts/1234' if "1234" is your GA4 Account ID.
+   * if "123" is your Google Analytics property ID. To request at the account
+   * level, entity should be for example 'accounts/1234' if "1234" is your Google
+   * Analytics Account ID.
    * @param GoogleAnalyticsAdminV1betaRunAccessReportRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleAnalyticsAdminV1betaRunAccessReportResponse
@@ -191,7 +192,7 @@ class Accounts extends \Google\Service\Resource
    * specified set of filters. (accounts.searchChangeHistoryEvents)
    *
    * @param string $account Required. The account resource for which to return
-   * change history resources. Format: accounts/{account} Example: "accounts/100"
+   * change history resources. Format: accounts/{account} Example: `accounts/100`
    * @param GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleAnalyticsAdminV1betaSearchChangeHistoryEventsResponse
