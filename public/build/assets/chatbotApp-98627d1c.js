@@ -1,0 +1,1 @@
+import{f as o,e as t,m as a,c as i,L as c}from"./clipboard-4db12c4b.js";window.fetchEventSource=o;window.Alpine=t;t.plugin(a);console.log("chatbotApp yüklendi");document.addEventListener("alpine:init",()=>{t.data("clipboard",e=>i(e))});c.start();document.querySelectorAll("[magic-load]").forEach(function(e){e.removeAttribute("magic-load")});
